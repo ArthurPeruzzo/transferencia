@@ -21,7 +21,7 @@ public class UsuarioLojista {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @NotNull
+    @NotNull(message = "As informações do usuário devem ser preenchidas!")
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 }

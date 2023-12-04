@@ -1,5 +1,6 @@
 package com.projeto.transferencia.usuario.comum;
 
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ public class UsuarioComumControllerImpl {
     private final UsuarioComumService service;
 
     @PostMapping("salvar")
-    public ResponseEntity<UsuarioComum> salvar(@RequestBody UsuarioComum usuarioComum) {
+    public ResponseEntity<UsuarioComum> salvar(@RequestBody @Valid UsuarioComum usuarioComum) {
         return ResponseEntity.ok().body(service.salvar(usuarioComum));
     }
 
