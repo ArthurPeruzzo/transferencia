@@ -2,7 +2,6 @@ package com.projeto.transferencia.usuario.comum;
 
 import com.projeto.transferencia.usuario.Usuario;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +20,6 @@ public class UsuarioComum {
     private Long id;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @NotNull(message = "As informações do usuário devem ser preenchidas!")
     @JoinColumn(name = "id_usuario", nullable = false)
     private Usuario usuario;
 }
