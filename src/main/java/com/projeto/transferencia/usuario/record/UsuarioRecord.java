@@ -1,5 +1,6 @@
 package com.projeto.transferencia.usuario.record;
 
+import com.projeto.transferencia.anotacoes.cpfCnpj.CpfCnpj;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -13,8 +14,8 @@ public record UsuarioRecord(
         @Size(max = 60, message = "O nome deve ter no máximo {max} caracteres.")
         String nomeCompleto,
 
-        @NotNull(message = "Identificação não deve ser nula!")
-        @Size(min = 11, max = 14, message = "O tamanho da identificação deve ter entre {min} e {max} caracteres.")
+        @NotNull(message = "CPF / CNPJ obrigatório!")
+        @CpfCnpj
         String identificacao,
 
         @NotNull(message = "Email não deve ser nulo!")
