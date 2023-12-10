@@ -20,8 +20,9 @@ public class UsuarioLojistaControllerImpl {
     }
 
     @PutMapping("atualizar")
-    public ResponseEntity<?> atualizar(@RequestBody @Valid UsuarioLojista usuarioLojista) {
-        return ResponseEntity.ok().body(service.atualizar(usuarioLojista));
+    public ResponseEntity<?> atualizar(@RequestBody @Valid UsuarioLojistaRecord usuarioLojistaRecord) {
+        service.atualizar(usuarioLojistaRecord);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("deletar/{id}")

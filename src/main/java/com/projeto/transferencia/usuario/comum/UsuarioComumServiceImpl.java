@@ -19,14 +19,6 @@ public class UsuarioComumServiceImpl implements UsuarioComumService {
         repository.save(usuarioComum);
     }
 
-    private static UsuarioComum mapUsuarioComum(UsuarioComumRecord usuarioComumRecord) {
-        ModelMapper modelMapper = ModelMapperRecord.getModelMapperRecord();
-        UsuarioComum usuarioComum = modelMapper.map(usuarioComumRecord, UsuarioComum.class);
-        Usuario usuario = modelMapper.map(usuarioComumRecord.usuario(), Usuario.class);
-        usuarioComum.setUsuario(usuario);
-        return usuarioComum;
-    }
-
     @Override
     public void atualizar(UsuarioComumRecord usuarioComumRecord) {
         UsuarioComum usuarioComum = mapUsuarioComum(usuarioComumRecord);
@@ -36,5 +28,13 @@ public class UsuarioComumServiceImpl implements UsuarioComumService {
     @Override
     public void deletarPorId(Long id) {
         repository.deleteById(id);
+    }
+
+    private static UsuarioComum mapUsuarioComum(UsuarioComumRecord usuarioComumRecord) {
+        ModelMapper modelMapper = ModelMapperRecord.getModelMapperRecord();
+        UsuarioComum usuarioComum = modelMapper.map(usuarioComumRecord, UsuarioComum.class);
+        Usuario usuario = modelMapper.map(usuarioComumRecord.usuario(), Usuario.class);
+        usuarioComum.setUsuario(usuario);
+        return usuarioComum;
     }
 }

@@ -14,14 +14,15 @@ public class UsuarioLojistaServiceImpl implements UsuarioLojistaService {
     private final UsuarioLojistaRepository repository;
 
     @Override
-    public UsuarioLojista salvar(UsuarioLojistaRecord usuarioLojistaRecord) {
+    public void salvar(UsuarioLojistaRecord usuarioLojistaRecord) {
         UsuarioLojista usuarioLojista = mapUsuarioLojista(usuarioLojistaRecord);
-        return repository.save(usuarioLojista);
+        repository.save(usuarioLojista);
     }
 
     @Override
-    public UsuarioLojista atualizar(UsuarioLojista usuarioLojista) {
-        return repository.save(usuarioLojista);
+    public void atualizar(UsuarioLojistaRecord usuarioLojistaRecord) {
+        UsuarioLojista usuarioLojista = mapUsuarioLojista(usuarioLojistaRecord);
+        repository.save(usuarioLojista);
     }
 
     @Override
