@@ -1,4 +1,4 @@
-package com.projeto.transferencia.modelMapper;
+package com.projeto.transferencia.util.modelMapper;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.record.RecordModule;

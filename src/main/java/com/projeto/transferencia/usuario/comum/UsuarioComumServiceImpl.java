@@ -1,8 +1,8 @@
 package com.projeto.transferencia.usuario.comum;
 
-import com.projeto.transferencia.modelMapper.ModelMapperRecord;
 import com.projeto.transferencia.usuario.Usuario;
 import com.projeto.transferencia.usuario.comum.record.UsuarioComumRecord;
+import com.projeto.transferencia.util.modelMapper.ModelMapperRecord;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
