@@ -1,8 +1,10 @@
 package com.projeto.transferencia.usuario.comum;
 
+import com.projeto.transferencia.usuario.comum.record.UsuarioComumRecord;
+
 public interface UsuarioComumService {
 
-    UsuarioComum salvar(UsuarioComum usuarioComum);
-    UsuarioComum atualizar(UsuarioComum usuarioComum);
+    void salvar(UsuarioComumRecord usuarioComum);
+    void atualizar(UsuarioComumRecord usuarioComumRecord);
     void deletarPorId(Long id);
 }

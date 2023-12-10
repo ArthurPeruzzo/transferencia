@@ -1,8 +1,10 @@
 package com.projeto.transferencia.usuario.lojista;
 
+import com.projeto.transferencia.usuario.lojista.record.UsuarioLojistaRecord;
+
 public interface UsuarioLojistaService {
 
-    UsuarioLojista salvar(UsuarioLojista usuarioLojista);
-    UsuarioLojista atualizar(UsuarioLojista usuarioLojista);
+    void salvar(UsuarioLojistaRecord usuarioLojista);
+    void atualizar(UsuarioLojistaRecord usuarioLojistaRecord);
     void deletarPorId(Long id);
 }

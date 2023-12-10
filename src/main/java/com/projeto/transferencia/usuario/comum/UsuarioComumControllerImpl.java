@@ -1,5 +1,7 @@
 package com.projeto.transferencia.usuario.comum;
 
+import com.projeto.transferencia.usuario.comum.record.UsuarioComumRecord;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,17 +14,19 @@ public class UsuarioComumControllerImpl {
     private final UsuarioComumService service;
 
     @PostMapping("salvar")
-    public ResponseEntity<UsuarioComum> salvar(@RequestBody UsuarioComum usuarioComum) {
-        return ResponseEntity.ok().body(service.salvar(usuarioComum));
+    public ResponseEntity<?> salvar(@RequestBody @Valid UsuarioComumRecord usuarioComumRecord) {
+        service.salvar(usuarioComumRecord);
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("atualizar")
-    public ResponseEntity<UsuarioComum> atualizar(@RequestBody UsuarioComum usuarioComum) {
-        return ResponseEntity.ok().body(service.atualizar(usuarioComum));
+    public ResponseEntity<?> atualizar(@RequestBody @Valid UsuarioComumRecord usuarioComumRecord) {
+        service.atualizar(usuarioComumRecord);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("deletar/{id}")
-    public ResponseEntity<Void> deletarPorId(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<?> deletarPorId(@PathVariable(value = "id") Long id) {
         service.deletarPorId(id);
         return ResponseEntity.noContent().build();
     }

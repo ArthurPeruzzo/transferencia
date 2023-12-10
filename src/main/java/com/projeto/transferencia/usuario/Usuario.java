@@ -1,9 +1,6 @@
 package com.projeto.transferencia.usuario;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,7 +8,9 @@ import lombok.Setter;
 
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "usuario", uniqueConstraints = {
+        @UniqueConstraint(columnNames = {"identificacao", "email"}),
+})
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,24 +21,15 @@ public class Usuario {
     @Column(name = "id_usuario")
     private Long id;
 
-    @NotNull
-    @Size(max = 60)
-    @Column(name = "nome_completo")
+    @Column(name = "nome_completo", nullable = false)
     private String nomeCompleto;
 
-    @NotNull
-    @Size(min = 11, max = 14)
-    @Column(name = "identificacao", unique = true)
+    @Column(name = "identificacao", unique = true, nullable = false)
     private String identificacao;
 
-    @NotNull
-    @Size(max = 255)
-    @Email(message = "Email inválido!")
-    @Column(name = "email", unique = true)
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @NotNull
-    @Size(max = 255)
-    @Column(name = "senha")
+    @Column(name = "senha", nullable = false)
     private String senha;
 }
