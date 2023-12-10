@@ -1,5 +1,7 @@
 package com.projeto.transferencia.usuario.lojista;
 
+import com.projeto.transferencia.usuario.lojista.record.UsuarioLojistaRecord;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +14,13 @@ public class UsuarioLojistaControllerImpl {
     private final UsuarioLojistaService service;
 
     @PostMapping("salvar")
-    public ResponseEntity<UsuarioLojista> salvar(@RequestBody UsuarioLojista usuarioLojista) {
-        return ResponseEntity.ok().body(service.salvar(usuarioLojista));
+    public ResponseEntity<?> salvar(@RequestBody @Valid UsuarioLojistaRecord usuarioLojistaRecord) {
+        service.salvar(usuarioLojistaRecord);
+        return ResponseEntity.ok().build();
     }
 
     @PutMapping("atualizar")
-    public ResponseEntity<UsuarioLojista> atualizar(@RequestBody UsuarioLojista usuarioLojista) {
+    public ResponseEntity<?> atualizar(@RequestBody @Valid UsuarioLojista usuarioLojista) {
         return ResponseEntity.ok().body(service.atualizar(usuarioLojista));
     }
 
