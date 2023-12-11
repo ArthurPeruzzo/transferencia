@@ -8,10 +8,6 @@ import org.hibernate.validator.internal.constraintvalidators.hv.br.CPFValidator;
 public class CpfCnpjValidator implements ConstraintValidator<CpfCnpj, String> {
 
     @Override
-    public void initialize(CpfCnpj cpfCnpj) {
-    }
-
-    @Override
     public boolean isValid(String cpfCnpj, ConstraintValidatorContext context) {
        return isCpf(cpfCnpj, context) || isCnpj(cpfCnpj, context);
     }

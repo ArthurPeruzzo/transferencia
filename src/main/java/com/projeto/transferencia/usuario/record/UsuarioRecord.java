@@ -1,6 +1,7 @@
 package com.projeto.transferencia.usuario.record;
 
 import com.projeto.transferencia.anotacoes.cpfCnpj.CpfCnpj;
+import com.projeto.transferencia.anotacoes.nomeCompleto.NomeCompleto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -9,6 +10,7 @@ import jakarta.validation.constraints.Size;
 public record UsuarioRecord(
         Long id,
 
+        @NomeCompleto
         @NotNull(message = "Nome não deve ser nulo!")
         @NotBlank(message = "Nome não deve ser vazio!")
         @Size(max = 60, message = "O nome deve ter no máximo {max} caracteres.")
