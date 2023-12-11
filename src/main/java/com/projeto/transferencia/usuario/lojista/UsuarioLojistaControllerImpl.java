@@ -26,7 +26,7 @@ public class UsuarioLojistaControllerImpl {
     }
 
     @DeleteMapping("deletar/{id}")
-    public ResponseEntity<Void> deletarPorId(@PathVariable(value = "id") Long id) {
+    public ResponseEntity<?> deletarPorId(@PathVariable(value = "id") Long id) {
         service.deletarPorId(id);
         return ResponseEntity.noContent().build();
     }
