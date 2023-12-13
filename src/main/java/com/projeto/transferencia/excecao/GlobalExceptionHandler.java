@@ -44,6 +44,12 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(getErrorsMap(errors), HttpStatus.BAD_REQUEST);
     }
 
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<Map<String, List<String>>> handleMethodIllegalArgumentException(IllegalArgumentException ex) {
+        List<String> errors = Collections.singletonList(ex.getMessage());
+        return new ResponseEntity<>(getErrorsMap(errors), HttpStatus.BAD_REQUEST);
+    }
+
     private Map<String, List<String>> getErrorsMap(List<String> erros) {
         Map<String, List<String>> errorResponse = new HashMap<>();
         errorResponse.put(ERROS, erros);
