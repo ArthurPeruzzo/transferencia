@@ -21,6 +21,6 @@ public class ModelMapperRecordTest {
         ModelMapper modelMapper = ModelMapperRecord.getModelMapperRecord();
 
         Assertions.assertTrue(modelMapper.getConfiguration().getValueReaders()
-                .stream().anyMatch(value -> value instanceof RecordValueReader));
+                .stream().anyMatch(RecordValueReader.class::isInstance));
     }
 }
