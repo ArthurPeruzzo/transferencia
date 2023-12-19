@@ -22,8 +22,7 @@ public class StringUtilTest {
 
     @Test
     public void deveRetornarIllegalArgumentExceptionSeValorNulo() {
-        String valor = null;
-        Assertions.assertThrows(IllegalArgumentException.class, ()-> StringUtil.retiraPontoETraco(valor));
+        Assertions.assertThrows(IllegalArgumentException.class, ()-> StringUtil.retiraPontoETraco(null));
     }
 
     @Test
