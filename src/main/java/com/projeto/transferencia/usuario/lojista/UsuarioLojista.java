@@ -2,16 +2,12 @@ package com.projeto.transferencia.usuario.lojista;
 
 import com.projeto.transferencia.usuario.Usuario;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Table(name = "usuario_lojista")
-@Getter @Setter
-@AllArgsConstructor
-@NoArgsConstructor
+@Getter @Setter @Builder
+@AllArgsConstructor @NoArgsConstructor
 public class UsuarioLojista {
 
     @Id
